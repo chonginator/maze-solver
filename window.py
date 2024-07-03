@@ -6,8 +6,8 @@ class Window:
     self.__root.title = "Maze Solver"
     self.__root.protocol("WM_DELETE_WINDOW", self.close)
 
-    self.__canvas = Canvas(width=width, height=height)
-    self.__canvas.pack()
+    self.__canvas = Canvas(self.__root, bg="white", width=width, height=height)
+    self.__canvas.pack(fill=BOTH, expand=1)
 
     self.__running = False
 
@@ -20,7 +20,7 @@ class Window:
 
     while self.__running:
       self.redraw()
+    print("window closed...")
 
   def close(self):
-    print("close window!")
     self.__running = False
