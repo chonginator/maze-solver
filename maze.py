@@ -25,6 +25,7 @@ class Maze:
     self._create_cells()
     self._break_entrance_and_exit()
     self._break_walls_r(0, 0)
+    self._reset_cells_visited()
 
     if seed:
       random.seed(seed)
@@ -104,3 +105,8 @@ class Maze:
     if next_j == j + 1:
       self._cells[i][j].has_bottom_wall = False
       self._cells[next_i][next_j].has_top_wall = False
+
+  def _reset_cells_visited(self):
+    for col in self._cells:
+      for cell in col:
+        cell.visited = False
