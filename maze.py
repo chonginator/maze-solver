@@ -124,13 +124,29 @@ class Maze:
     while True:
       unvisited = []
 
-      if i > 0 and not self._cells[i - 1][j].visited and not self._cells[i][j].has_left_wall:
+      if (
+        i > 0
+        and not self._cells[i - 1][j].visited
+        and not self._cells[i][j].has_left_wall
+      ):
         unvisited.append((i - 1, j))
-      if i < self._num_cols - 1 and not self._cells[i + 1][j].visited and not self._cells[i][j].has_right_wall:
+      if (
+        i < self._num_cols - 1
+        and not self._cells[i + 1][j].visited
+        and not self._cells[i][j].has_right_wall
+      ):
         unvisited.append((i + 1, j))
-      if j > 0 and not self._cells[i][j - 1].visited and not self._cells[i][j].has_top_wall:
+      if (
+        j > 0
+        and not self._cells[i][j - 1].visited
+        and not self._cells[i][j].has_top_wall
+      ):
         unvisited.append((i, j - 1))
-      if j < self._num_rows - 1 and not self._cells[i][j + 1].visited and not self._cells[i][j].has_bottom_wall:
+      if (
+        j < self._num_rows - 1
+        and not self._cells[i][j + 1].visited
+        and not self._cells[i][j].has_bottom_wall
+      ):
         unvisited.append((i, j + 1))
       
       if len(unvisited) == 0:
